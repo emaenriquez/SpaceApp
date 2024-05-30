@@ -1,31 +1,49 @@
-
-function uno (num) {
+function uno (dos) {
     console.log("uno")
-    setTimeout(num,2000)
+    setTimeout(dos, 2000)
+  
 }
 
-function dos () {
+function dos (tres) {
     console.log("dos")
+    setTimeout(tres,2000)
 }
 
-setTimeout(()=>uno(dos), 1000)
-setTimeout(dos, 2000)
+function tres (cuatro) {
+    console.log("tres")
+    setTimeout(cuatro,2000)
+
+}
+
+function cuatro (cinco) {
+    console.log("cuatro")
+    setTimeout(cinco,2000)
+
+}
+
+function cinco() {
+    console.log("cinco")   
+} 
 
 
+setTimeout(() => uno(dos),5000)
 
-// funcion anonima
-const nombre = function(){
+//calback hell
+setTimeout(() => uno(
+    () => dos(
+        () => tres(
+            () => cuatro(
+                () => cinco(),)))), 3000);
+
+
+const nombre = function () {
     console.log("nombre")
 }
-// nombre()
 
-// funciones de flecha
-const nombre2 = () => {
-    console.log("nombre2")
-}
-// nombre2()
+nombre()
 
-const nombre3 = () => console.log("nombre3")
-// nombre3();
+const persona = () => console.log("Barbara")
 
-// () => console.log('2')
+persona();
+
+() => console.log()
